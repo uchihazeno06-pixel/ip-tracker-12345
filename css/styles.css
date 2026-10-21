@@ -1,0 +1,203 @@
+/* --- 1. Custom Properties --- */
+:root {
+  --gray-950: hsl(0, 0%, 17%);
+  --gray-400: hsl(0, 0%, 58%);
+  --font-family: 'Rubik', sans-serif;
+  --white: #ffffff;
+}
+
+/* --- 2. Reset & Base Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--gray-950);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative; 
+}
+
+/* Accessibility utility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- 3. Header Section --- */
+.header {
+  background-color: hsl(240, 50%, 50%);
+  background-image: url('../images/pattern-bg-desktop.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 2rem 1.5rem 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  
+  position: relative;
+  z-index: 2; /* Above the map */
+}
+
+.header__title {
+  color: var(--white);
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+/* --- 4. Search Bar --- */
+.search {
+  display: flex;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.search__input {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+  font-family: inherit;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: var(--gray-950);
+}
+
+.search__input::placeholder {
+  color: var(--gray-400);
+}
+
+.search__submit {
+  background-color: var(--gray-950);
+  border: none;
+  padding: 0 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.search__submit:hover {
+  background-color: var(--gray-400);
+}
+
+.search__submit img {
+  width: 12px;
+  height: auto;
+}
+
+/* --- 5. The Info Card --- */
+.info {
+  background-color: var(--white);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  
+  margin-top: -8rem; 
+  
+  width: 90%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  
+  position: relative; 
+  z-index: 10; /* Above the map and header */
+}
+
+.info__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 1.5rem;
+}
+
+.info__item:not(:last-child) {
+  border-right: 1px solid hsl(0, 0%, 85%);
+}
+
+.info__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.info__value {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--gray-950);
+  word-break: break-word;
+  transition: color 0.3s ease;
+}
+
+/* --- 6. The Map Section --- */
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1; 
+  background-color: #e5e5e5; 
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-container {
+  background: #e5e5e5 !important; 
+}
+
+/* --- 7. Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .header {
+    background-image: url('../images/pattern-bg-mobile.png');
+    padding: 1.5rem 1.5rem 12rem; 
+  }
+
+  .info {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: -10rem; 
+  }
+
+  .info__item {
+    padding-right: 0; 
+    padding-bottom: 1rem;
+    border-right: none; 
+    border-bottom: 1px solid hsl(0, 0%, 90%); 
+  }
+
+  .info__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .info__value {
+    font-size: 1.15rem;
+  }
+}

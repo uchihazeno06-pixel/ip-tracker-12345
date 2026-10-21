@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <!-- Google Fonts: Rubik -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="./css/styles.css">
+  
+  <title>IP Address Tracker</title>
+</head>
+<body>
+
+  <!-- The Blue Header -->
+  <header class="header">
+    <h1 class="header__title">IP Address Tracker</h1>
+
+    <form class="search" id="search-form">
+      <label for="ip-input" class="visually-hidden">Search for any IP address or domain</label>
+      <input
+        id="ip-input"
+        class="search__input"
+        type="text"
+        name="query"
+        placeholder="Search for any IP address or domain"
+        autocomplete="off"
+      >
+      <button class="search__submit" type="submit" aria-label="Search">
+        <img src="./images/icon-arrow.svg" alt="">
+      </button>
+    </form>
+  </header>
+
+  <!-- The White Info Card -->
+  <section class="info" aria-label="IP address information">
+    <div class="info__item">
+      <h2 class="info__label">IP Address</h2>
+      <p class="info__value" id="ip-address">—</p>
+    </div>
+    <div class="info__item">
+      <h2 class="info__label">Location</h2>
+      <p class="info__value" id="location">—</p>
+    </div>
+    <div class="info__item">
+      <h2 class="info__label">Timezone</h2>
+      <p class="info__value" id="timezone">—</p>
+    </div>
+    <div class="info__item">
+      <h2 class="info__label">ISP</h2>
+      <p class="info__value" id="isp">—</p>
+    </div>
+  </section>
+
+  <!-- The Map -->
+  <div class="map" id="map" aria-label="Map showing IP location"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Our Scripts (config.js is back) -->
+  <script src="./js/config.js"></script>
+  <script src="./js/app.js"></script>
+
+</body>
+</html>
