@@ -19,16 +19,14 @@ const customIcon = L.icon({
 // 4. Create the marker
 let marker = L.marker([51.505, -0.09], { icon: customIcon }).addTo(map);
 
-// 5. Fetch Data securely via Vercel API Route
+// 5. Fetch Data securely via Netlify Function (using the redirect)
 async function fetchIPData(query = '') {
   
-  // Safely encode the query and call the Vercel serverless function
   const url = `/api/ipify?query=${encodeURIComponent(query)}`;
 
   try {
     const response = await fetch(url);
     
-    // Catch server errors (like 500) before trying to parse JSON
     if (!response.ok) {
         throw new Error(`Server responded with status ${response.status}`);
     }
