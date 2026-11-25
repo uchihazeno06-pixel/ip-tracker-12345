@@ -17,7 +17,7 @@ Users should be able to:
 
 ### Links
 - **Live Site URL:** [Add your deployed link here - e.g., https://your-name-ip-tracker.netlify.app]
-- **GitHub Repository:** [[Add your GitHub URL here](https://github.com/uchihazeno06-pixel/ip-tracker-12345)]
+- **GitHub Repository:** [(https://github.com/uchihazeno06-pixel/ip-tracker-12345)]
 
 ---
 
